@@ -1,0 +1,12 @@
+torch
+transformers
+datasets
+peft
+trl
+bitsandbytes
+accelerate
+safetensors
+sentencepiece
+protobuf
+pyyaml
+tqdm

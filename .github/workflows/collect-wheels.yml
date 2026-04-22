@@ -1,0 +1,51 @@
+name: collect-windows-wheels
+
+on:
+  workflow_dispatch:
+    inputs:
+      python_version:
+        description: "Python version (hedef makinedekiyle aynı olmalı)"
+        default: "3.11"
+      torch_index:
+        description: "PyTorch wheel index URL"
+        default: "https://download.pytorch.org/whl/nightly/cu128"
+
+jobs:
+  download:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python_version }}
+
+      - name: Upgrade pip tooling
+        run: python -m pip install --upgrade pip wheel setuptools
+
+      - name: Download torch stack (CUDA index)
+        run: |
+          python -m pip download `
+            --dest wheels `
+            --only-binary=:all: `
+            --extra-index-url ${{ inputs.torch_index }} `
+            torch torchvision torchaudio
+
+      - name: Download remaining requirements
+        run: |
+          python -m pip download `
+            --dest wheels `
+            --prefer-binary `
+            --extra-index-url ${{ inputs.torch_index }} `
+            -r requirements.txt
+
+      - name: List collected wheels
+        run: Get-ChildItem wheels | Format-Table Name,Length
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-wheels-py${{ inputs.python_version }}
+          path: wheels/
+          retention-days: 14

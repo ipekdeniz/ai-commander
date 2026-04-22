@@ -1,0 +1,25 @@
+# venv / build
+env/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# OS
+.DS_Store
+
+# large artifacts — not meant for git
+wheels/
+datasets/
+dataset/*.jsonl
+train/outputs/
+export/outputs/
+*.gguf
+*.safetensors
+*.bin
+models/**/tokenizer.model
+models/**/*.json.lock
+models/Llama-*/
+models/teacher/model.safetensors*
+models/teacher/*.json
+models/teacher/tokenizer*

@@ -1,0 +1,182 @@
+# Aviation Emergency Procedures — seed topics and angles for synthetic Q&A generation.
+# Each topic × angle combination produces 5 Q&A pairs via the teacher model.
+# Target: ~25 topics × ~5 angles × 5 pairs ≈ 600-1000 grounded pairs.
+
+seeds:
+  - topic: "Engine failure in flight (single-engine piston)"
+    angles:
+      - recognition_and_diagnosis
+      - immediate_memory_items
+      - best_glide_and_trim
+      - field_selection_criteria
+      - restart_attempt_procedure
+      - mayday_call_format
+      - forced_landing_technique
+
+  - topic: "Engine failure on takeoff (single-engine)"
+    angles:
+      - below_400ft_straight_ahead
+      - impossible_turn_risk_analysis
+      - after_takeoff_engine_failure_checklist
+      - aircraft_control_priority
+
+  - topic: "Engine fire in flight"
+    angles:
+      - in_flight_fire_checklist
+      - mixture_fuel_master_sequence
+      - emergency_descent_procedure
+      - post_shutdown_glide
+
+  - topic: "Electrical fire or smoke in cockpit"
+    angles:
+      - master_switch_off_sequence
+      - circuit_isolation
+      - smoke_evacuation_procedure
+      - emergency_descent_decision
+
+  - topic: "Rapid or explosive decompression (pressurized aircraft)"
+    angles:
+      - don_oxygen_mask_priority
+      - emergency_descent_to_10000ft
+      - time_of_useful_consciousness
+      - passenger_oxygen_deployment
+
+  - topic: "Loss of control and unusual attitudes"
+    angles:
+      - nose_high_recovery
+      - nose_low_recovery
+      - spatial_disorientation_indicators
+      - instrument_scan_under_stress
+
+  - topic: "Stall and spin recovery"
+    angles:
+      - stall_recognition
+      - stall_recovery_generic
+      - PARE_spin_recovery
+      - cross_control_and_base_to_final_stall
+
+  - topic: "Hydraulic system failure"
+    angles:
+      - indications_and_confirmation
+      - affected_systems
+      - alternate_extension_gear
+      - landing_considerations
+
+  - topic: "Total electrical failure (alternator plus battery)"
+    angles:
+      - load_shed_priorities
+      - navigation_and_comm_loss
+      - transponder_and_lights
+      - landing_considerations
+
+  - topic: "Pitot-static system failure"
+    angles:
+      - blocked_pitot_symptoms
+      - blocked_static_symptoms
+      - alternate_static_source
+      - airspeed_altitude_cross_check
+
+  - topic: "Landing gear malfunction"
+    angles:
+      - gear_unsafe_indication
+      - manual_extension_procedure
+      - gear_up_landing_technique
+      - preparation_for_landing
+
+  - topic: "Flap asymmetry or failure"
+    angles:
+      - asymmetric_flap_symptoms
+      - airspeed_adjustment
+      - landing_flap_settings
+      - go_around_considerations
+
+  - topic: "Bird strike"
+    angles:
+      - immediate_actions
+      - damage_assessment
+      - engine_ingestion_response
+      - windshield_damage_response
+
+  - topic: "Wind shear and microburst encounter"
+    angles:
+      - recognition_of_wind_shear
+      - recovery_technique_full_power
+      - avoidance_and_reporting
+      - escape_maneuver
+
+  - topic: "Severe turbulence and thunderstorm encounter"
+    angles:
+      - turbulent_air_penetration_speed
+      - autopilot_disengagement
+      - attitude_management
+      - avoidance_and_deviation
+
+  - topic: "Structural icing encounter"
+    angles:
+      - icing_recognition
+      - anti_ice_and_de_ice_use
+      - escape_strategy
+      - stall_speed_increase
+
+  - topic: "Carburetor icing"
+    angles:
+      - recognition_symptoms
+      - carb_heat_application
+      - prevention_in_susceptible_conditions
+
+  - topic: "Ditching (controlled water landing)"
+    angles:
+      - preparation_and_briefing
+      - landing_into_swell
+      - post_impact_egress
+      - survival_gear_use
+
+  - topic: "Forced landing off-airport (land)"
+    angles:
+      - field_selection_five_Ss
+      - approach_planning
+      - touchdown_technique
+      - post_landing_actions
+
+  - topic: "Fuel emergency"
+    angles:
+      - minimum_fuel_advisory
+      - emergency_fuel_declaration
+      - priority_handling_by_atc
+
+  - topic: "Radio communication failure (NORDO)"
+    angles:
+      - lost_comm_procedures_VFR
+      - lost_comm_procedures_IFR_AVEF
+      - squawk_7600
+      - light_gun_signals
+
+  - topic: "Transponder failure"
+    angles:
+      - reporting_to_atc
+      - mode_c_and_mode_s_loss
+      - airspace_restrictions
+
+  - topic: "Rejected takeoff and runway incursion"
+    angles:
+      - decision_speed_V1
+      - rejected_takeoff_procedure
+      - runway_incursion_prevention
+
+  - topic: "Wake turbulence encounter"
+    angles:
+      - separation_rules
+      - recovery_technique
+      - avoidance_planning
+
+  - topic: "Medical emergency onboard"
+    angles:
+      - pilot_incapacitation
+      - passenger_medical_event
+      - diversion_decision
+
+  - topic: "Hijacking and bomb threat response (FAR 91.3 emergency authority)"
+    angles:
+      - squawk_7500
+      - comm_procedures
+      - landing_considerations
