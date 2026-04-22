@@ -24,19 +24,22 @@ jobs:
       - name: Upgrade pip tooling
         run: python -m pip install --upgrade pip wheel setuptools
 
-      - name: Download torch stack (CUDA index)
+      - name: Download torch (CUDA-only index, no PyPI fallback)
         run: |
           python -m pip download `
             --dest wheels `
             --only-binary=:all: `
-            --extra-index-url ${{ inputs.torch_index }} `
-            torch torchvision torchaudio
+            --index-url ${{ inputs.torch_index }} `
+            --pre `
+            torch
 
-      - name: Download remaining requirements
+      - name: Download remaining requirements (PyPI + CUDA index for transitive torch deps)
         run: |
           python -m pip download `
             --dest wheels `
             --prefer-binary `
+            --pre `
+            --find-links wheels `
             --extra-index-url ${{ inputs.torch_index }} `
             -r requirements.txt
 
